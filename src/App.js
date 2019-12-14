@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route} from 'react-router-dom';
+
+// import logo from './logo.svg';
+import './App.scss';
+import MainContent from './MainContent/MainContent';
+
+const Canvas = React.forwardRef((props, ref: any) => (
+  <canvas id="pageflip-canvas" ref={ref}></canvas>
+));
 
 function App() {
+  const canvasRef = React.createRef();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React init
-        </a>
-      </header>
+      <div className="mainContainer">
+        <div className="paper">
+          <Canvas ref={canvasRef}/>
+          <div className="App effect2 box" id="book">
+            <Route path="/" exact render={() => <MainContent canvas={canvasRef} />} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
