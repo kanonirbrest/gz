@@ -4,11 +4,11 @@ export const flip = function(canvas) {
 
 	// Размеры всей книги
 	var BOOK_WIDTH = 830;
-	var BOOK_HEIGHT = 460;
+	var BOOK_HEIGHT = 760;
 	
 	// Размеры одной страницы
-	var PAGE_WIDTH = 400;
-	var PAGE_HEIGHT = 450;
+	var PAGE_WIDTH = 600;
+	var PAGE_HEIGHT = 750;
 	
 	// Растояние по вертикали между краями страницы и книги
 	var PAGE_Y = ( BOOK_HEIGHT - PAGE_HEIGHT ) / 2;
@@ -63,7 +63,7 @@ export const flip = function(canvas) {
 	
 	function mouseMoveHandler( event ) {
 		// Смещение курсора мыши в системе координат книги
-		mouse.x = event.clientX - book.offsetLeft - ( BOOK_WIDTH / 2 );
+		mouse.x = event.clientX - book.offsetLeft - ( BOOK_WIDTH / 2 - 200);
 		mouse.y = event.clientY - book.offsetTop;
 	}
 	
@@ -145,7 +145,7 @@ export const flip = function(canvas) {
 		flip.page.style.width = Math.max(foldX, 0) + "px";
 		
 		context.save();
-		context.translate( CANVAS_PADDING + ( BOOK_WIDTH / 2 ), PAGE_Y + CANVAS_PADDING );
+		context.translate( CANVAS_PADDING + ( BOOK_WIDTH / 2 - 200 ), PAGE_Y + CANVAS_PADDING );
 		
 		
 		// Выводим тени слева и справа

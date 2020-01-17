@@ -13,9 +13,9 @@ const Canvas = React.forwardRef((props, ref) => (
 ));
 
 class App extends Component {
-  canvasRef: any;
+  canvasRef;
 
-  constructor(props: any) {
+  constructor(props) {
     super(props);
     this.canvasRef = React.createRef();
   }
@@ -30,6 +30,9 @@ class App extends Component {
     return (
       <div id="book">
         <Canvas ref={this.canvasRef} />
+        <div className="updates">
+          updates
+        </div>
         <div className="App effect2 box" id="pages">
           <section >
             <div>
